@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"advent-of-code-2021/days"
+	"fmt"
 )
 
 func main() {

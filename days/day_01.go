@@ -62,11 +62,11 @@ func GetDay01Part2Result(fileName string) int {
 		// Rolling sum of 3 items
 		if i > 2 && i <= totalItems {
 			a := items[i]
-			b := items[i - 1]
-			c := items[i - 2]
+			b := items[i-1]
+			c := items[i-2]
 			value := a + b + c
 
-			if (value > previousValue) {
+			if value > previousValue {
 				numIncreases++
 			}
 

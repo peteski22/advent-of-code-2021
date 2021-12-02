@@ -10,7 +10,7 @@ import (
 
 type command struct {
 	direction string
-	unit int
+	unit      int
 }
 
 func getFileContentsAsCommands(fileName string) ([]command, error) {
@@ -27,11 +27,11 @@ func getFileContentsAsCommands(fileName string) ([]command, error) {
 	for scanner.Scan() {
 		parts := regexp.MustCompile("\\s").Split(scanner.Text(), 2)
 		amount, _ := strconv.Atoi(parts[1])
-		if (err != nil) {
+		if err != nil {
 			return nil, err
 		}
 
-		commands = append(commands, command { direction: parts[0], unit: amount})
+		commands = append(commands, command{direction: parts[0], unit: amount})
 	}
 
 	return commands, scanner.Err()
@@ -78,7 +78,7 @@ func GetDay02Part2Result(fileName string) int {
 			x = x + c.unit
 			y = y + (aim * c.unit)
 		case "up":
-			aim =aim - c.unit
+			aim = aim - c.unit
 		case "down":
 			aim = aim + c.unit
 		}
