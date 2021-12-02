@@ -1,35 +1,18 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
+	"advent-of-code-2021/days"
 )
 
 func main() {
-	day01Part1Result := getDay01Part1Result("day_01_1.input")
+	// DAY 01
+	day01Part1Result := days.GetDay01Part1Result("days/day_01_1.input")
 	fmt.Printf("Day 01 - Part 1: %d\n", day01Part1Result)
-	day01Part2Result := getDay02Part2Result("day_01_2.input")
+	day01Part2Result := days.GetDay02Part2Result("days/day_01_2.input")
 	fmt.Printf("Day 01 - Part 2: %d\n", day01Part2Result)
-}
 
-func GetFileContents(fileName string) ([]int, error) {
-	file, err := os.Open(fileName)
-
-	if err != nil {
-		return nil, err
-	}
-
-	defer file.Close()
-
-	var lines []int
-	scanner := bufio.NewScanner(file)
-
-	for scanner.Scan() {
-		line, _ := strconv.Atoi(scanner.Text())
-		lines = append(lines, line)
-	}
-
-	return lines, scanner.Err()
+	// DAY 02
+	day02Part1Result := days.GetDay02Part1Result("days/day_02_1.input")
+	fmt.Printf("Day 02 - Part 1: %d\n", day02Part1Result)
 }
