@@ -60,3 +60,29 @@ func GetDay02Part1Result(fileName string) int {
 
 	return x * y
 }
+
+func GetDay02Part2Result(fileName string) int {
+	commands, err := getFileContentsAsCommands(fileName)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	x := 0
+	y := 0
+	aim := 0
+
+	for _, c := range commands {
+		switch c.direction {
+		case "forward":
+			x = x + c.unit
+			y = y + (aim * c.unit)
+		case "up":
+			aim =aim - c.unit
+		case "down":
+			aim = aim + c.unit
+		}
+	}
+
+	return x * y
+}

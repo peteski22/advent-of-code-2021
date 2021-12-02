@@ -47,7 +47,7 @@ func GetDay01Part1Result(fileName string) int {
 	return numIncreases
 }
 
-func GetDay02Part2Result(fileName string) int {
+func GetDay01Part2Result(fileName string) int {
 	items, err := getFileContentsAsIntegers(fileName)
 	totalItems := len(items)
 	numIncreases := 0
