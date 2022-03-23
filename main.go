@@ -1,20 +1,45 @@
 package main
 
 import (
-	"advent-of-code-2021/days"
+	"bufio"
 	"fmt"
+	"os"
 )
 
 func main() {
+	var data []string
+
 	// DAY 01
-	day01Part1Result := days.GetDay01Part1Result("days/day_01_1.input")
-	fmt.Printf("Day 01 - Part 1: %d\n", day01Part1Result)
-	day01Part2Result := days.GetDay01Part2Result("days/day_01_2.input")
-	fmt.Printf("Day 01 - Part 2: %d\n", day01Part2Result)
+	data = readLines("input/day_01_1.input")
+	fmt.Printf("Day 01 - Part 1: %d\n", getDay01Part1Result(data))
+
+	data = readLines("input/day_01_2.input")
+	fmt.Printf("Day 01 - Part 2: %d\n", getDay01Part2Result(data))
 
 	// DAY 02
-	day02Part1Result := days.GetDay02Part1Result("days/day_02_1.input")
-	fmt.Printf("Day 02 - Part 1: %d\n", day02Part1Result)
-	day02Part2Result := days.GetDay02Part2Result("days/day_02_1.input")
-	fmt.Printf("Day 02 - Part 2: %d\n", day02Part2Result)
+	data = readLines("input/day_02_1.input")
+	fmt.Printf("Day 02 - Part 1: %d\n", getDay02Part1Result(data))
+
+	data = readLines("input/day_02_1.input")
+	fmt.Printf("Day 02 - Part 2: %d\n", getDay02Part2Result(data))
+
+	// DAY 03
+	data = readLines("input/day_03_1.input")
+	fmt.Printf("Day 03 - Part 1: %d\n", getDay03Part1Result(data))
+
+}
+
+func readLines(path string) []string {
+	f, err := os.Open(path)
+	if err != nil {
+		fmt.Println("Unable to read file:", path)
+	}
+	defer f.Close()
+
+	var l []string
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		l = append(l, s.Text())
+	}
+	return l
 }
